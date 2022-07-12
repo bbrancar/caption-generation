@@ -11,7 +11,7 @@ pr evaluate performance.
 
 Files
 -----
-- main.py : Main driver class
+- 'main.py' : Main driver class
 - model.py : Model architecture class
 - experiment.py : Main experiment class. Initialized based on config - takes care of training, saving stats and plots, logging 
 and resuming experiments.
