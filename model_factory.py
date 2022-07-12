@@ -1,8 +1,4 @@
-################################################################################
-# CSE 253: Programming Assignment 4
-# Code snippet by Ajit Kumar, Savyasachi
-# Fall 2020
-################################################################################
+
 from model import LSTMNetwork
 
 
@@ -15,5 +11,3 @@ def get_model(config_data, vocab):
     my_model = LSTMNetwork(hidden_size, embedding_size, vocab_size, 2, model_type)
 
     return my_model
-
-    # You may add more parameters if you want
