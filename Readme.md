@@ -1,4 +1,5 @@
-**Image Caption Generation**
+Image Caption Generation
+-----
 
 * Define the configuration for your experiment. See `default.json` to see the structure and available options. 
 * After defining the configuration (say `my_exp.json`) - simply run `python3 main.py my_exp` to start the experiment
