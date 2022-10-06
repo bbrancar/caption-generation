@@ -15,10 +15,6 @@ from file_utils import *
 from model_factory import get_model
 from vocab import *
 
-# Class to encapsulate a neural experiment.
-# The boilerplate code to setup the experiment, log stats, checkpoints and plotting have been provided to you.
-# You only need to implement the main training logic of your experiment and implement train, val and test methods.
-# You are free to modify or restructure the code as per your convenience.
 class Experiment(object):
     def __init__(self, name):
         config_data = read_file_in_dir('./', name + '.json')
@@ -46,7 +42,7 @@ class Experiment(object):
         self.__device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.__model = get_model(config_data, self.__vocab)
 
-        # TODO: Set these Criterion and Optimizers Correctly - DONE
+        # Set these Criterion and Optimizers Correctly
         params = list(self.__model.parameters())
         self.__criterion = nn.CrossEntropyLoss()
         self.__optimizer = torch.optim.AdamW(params, lr=self.__learning_rate, weight_decay=0.0001)
@@ -89,7 +85,7 @@ class Experiment(object):
             self.__log_epoch_stats(start_time)
             self.__save_model()
 
-    # TODO: Perform one training iteration on the whole dataset and return loss value - DONE
+    # Perform one training iteration on the whole dataset and return loss value
     def __train(self):
         self.__model.train()
         training_loss = []
@@ -107,7 +103,7 @@ class Experiment(object):
 
         return np.mean(training_loss)
 
-    # TODO: Perform one Pass on the validation set and return loss value. You may also update your best model here. - DONE
+    # Perform one Pass on the validation set and return loss value. You may also update your best model here.
     def __val(self):
         self.__model.eval()
         val_loss = 0
@@ -131,10 +127,6 @@ class Experiment(object):
                 self.__log(result_str)
 
         return val_loss
-
-    # TODO: Implement your test function here. Generate sample captions and evaluate loss and
-    #  bleu scores using the best model. Use utility functions provided to you in caption_utils.
-    #  Note that you'll need image_ids and COCO object in this case to fetch all captions to generate bleu scores. - DONE
 
     
     def test(self, model_location):
