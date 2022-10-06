@@ -1,9 +1,3 @@
-################################################################################
-# CSE 253: Programming Assignment 4
-# Code snippet by Ajit Kumar, Savyasachi
-# Fall 2020
-################################################################################
-
 import torch
 import torchvision.transforms as transforms
 import torch.utils.data as data
@@ -18,7 +12,7 @@ class CocoDataset(data.Dataset):
     """COCO Custom Dataset compatible with torch.utils.data.DataLoader."""
 
     def __init__(self, root, json, ids, vocab, img_size, transform=False):
-        """Set the path for images, captions and vocabulary wrapper.
+        """
 
         Args:
             root: image directory.
@@ -72,13 +66,7 @@ class CocoDataset(data.Dataset):
 
 
 def collate_fn(data):
-    """Creates mini-batch tensors from the list of tuples (image, caption)
-    by padding the captions to make them of equal length.
-
-    We can not use default collate_fn because variable length tensors can't be stacked vertically.
-    We need to pad the captions to make them of equal length so that they can be stacked for creating a mini-batch.
-
-    Read this for more information - https://pytorch.org/docs/stable/data.html#dataloader-collate-fn
+    """
 
     Args:
         data: list of tuple (image, caption).
