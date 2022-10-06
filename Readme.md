@@ -1,6 +1,8 @@
 Image Caption Generation
 -----
 
+An exploration of caption generation for images employing a multi-modal ResNet-LSTM network implemented in PyTorch. The model was trained using the CoCo dataset (https://cocodataset.org/#home) and was evaluated with BLEU scores. To run this model:
+
 * Define the configuration for your experiment. See `default.json` to see the structure and available options. 
 * After defining the configuration (say `my_exp.json`) - simply run `python3 main.py my_exp` to start the experiment
 * The logs, stats, plots and saved models would be stored in `./experiment_data/my_exp` dir. This can be configured in `contants.py`
